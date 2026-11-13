@@ -463,6 +463,9 @@ jobs:
           pip install pytest packaging
           pip install --index-url https://download.pytorch.org/whl/cpu 'torch>=2.4,<2.11'
 
+      - name: Test Qwen3 classifier predictions
+        run: python -m pytest tests/test_qwen3_classification_inference.py -q --tb=short
+
       - name: tests/test_fsdp2_launch.py
         run: |
           python -m pytest tests/test_fsdp2_launch.py -q --tb=short
